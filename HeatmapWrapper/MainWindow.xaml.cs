@@ -20,8 +20,11 @@ namespace HeatmapWrapper
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static String locationDataTabPrefix = "LocationData_V";
-        private static String bumpDataTabPrefix = "BumpLocationData_V";
+        private static string LocationDataTabPrefix = "LocationData_V";
+        private static string BumpDataTabPrefix = "BumpLocationData_V";
+
+        private SpreadsheetHelper SsHelper = new SpreadsheetHelper();
+        private int LatestVersion = 0;
 
         public MainWindow()
         {
@@ -35,35 +38,41 @@ namespace HeatmapWrapper
 
         private void RefreshGameVersions_Click(object sender, RoutedEventArgs e)
         {
-            HashSet<String> versionNames = GetGameVersionsFromSpreadsheets();
-            // TODO: Sort from high to low?
+            HashSet<string> versionNames = GetGameVersionsFromSpreadsheets();
+
+            // Sort versions descending
+            IEnumerable<string> sortedVersions = versionNames.OrderByDescending(v => int.Parse(v));
+
+            if(sortedVersions.Count() > 0)
+            {
+                LatestVersion = int.Parse(sortedVersions.First());
+            }
 
             // Update game version ComboBox values
             cmbGameVersion.Items.Clear();
 
             cmbGameVersion.Items.Add("Latest");
 
-            foreach(var ver in versionNames)
+            foreach(var ver in sortedVersions)
             {
                 cmbGameVersion.Items.Add(ver);
             }
 
             cmbGameVersion.SelectedItem = "Latest";
-
         }
 
-        private HashSet<String> GetGameVersionsFromSpreadsheets()
+        private HashSet<string> GetGameVersionsFromSpreadsheets()
         {
             // TODO: Determine if development or release
 
-            // TODO: Get tab names from Google Spreadsheets
-            List<String> tabNames = new List<String>();
+            // Get tab names from Google Spreadsheets
+            List<string> tabNames = SsHelper.GetTabNames("1ov0qAnzW4CXzwF1wSzVcvUVolx4om7j73NDyi-z7wdI");
 
             // Remove tab name prefixes
             for(int i = 0; i < tabNames.Count; ++i)
             {
-                tabNames[i] = tabNames[i].Replace(locationDataTabPrefix, "");
-                tabNames[i] = tabNames[i].Replace(bumpDataTabPrefix, "");
+                tabNames[i] = tabNames[i].Replace(BumpDataTabPrefix, "");
+                tabNames[i] = tabNames[i].Replace(LocationDataTabPrefix, "");
             }
 
             return tabNames.ToHashSet();
