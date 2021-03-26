@@ -69,8 +69,15 @@ namespace HeatmapWrapper
             // TODO: Determine flags to use
             List<string> flags = new List<string>();
 
+            // Data to use
             flags.Add("--" + selectedHeatmapType.ToString() + "Data " + heatmapDataPath);
+            // CSV delimiter
             flags.Add("--CsvDelimiter " + SpreadsheetHelper.CsvDelimiter);
+            // Bucket density
+            flags.Add("--HorizontalBuckets " + slBucketDensity.Value);
+            flags.Add("--VerticalBuckets " + slBucketDensity.Value);
+            // Color bin count
+            flags.Add("--ColorBinCount " + slColorBinCount.Value);
 
             string flagString = "";
             foreach(var flag in flags)
