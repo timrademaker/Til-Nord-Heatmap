@@ -34,16 +34,26 @@ namespace HeatmapWrapper
         private void GenerateHeatmap_Click(object sender, RoutedEventArgs e)
         {
             // TODO: Run console command to run Python file
+            // Make sure we know what "Latest" is
+            if(LatestVersion == 0)
+            {
+                UpdateGameVersionComboBox();
+            }
         }
 
         private void RefreshGameVersions_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateGameVersionComboBox();
+        }
+
+        private void UpdateGameVersionComboBox()
         {
             HashSet<string> versionNames = GetGameVersionsFromSpreadsheets();
 
             // Sort versions descending
             IEnumerable<string> sortedVersions = versionNames.OrderByDescending(v => int.Parse(v));
 
-            if(sortedVersions.Count() > 0)
+            if (sortedVersions.Count() > 0)
             {
                 LatestVersion = int.Parse(sortedVersions.First());
             }
@@ -53,7 +63,7 @@ namespace HeatmapWrapper
 
             cmbGameVersion.Items.Add("Latest");
 
-            foreach(var ver in sortedVersions)
+            foreach (var ver in sortedVersions)
             {
                 cmbGameVersion.Items.Add(ver);
             }
@@ -66,7 +76,7 @@ namespace HeatmapWrapper
             // TODO: Determine if development or release
 
             // Get tab names from Google Spreadsheets
-            List<string> tabNames = SsHelper.GetTabNames("1ov0qAnzW4CXzwF1wSzVcvUVolx4om7j73NDyi-z7wdI");
+            List<string> tabNames = SsHelper.GetTabNames("");
 
             // Remove tab name prefixes
             for(int i = 0; i < tabNames.Count; ++i)
