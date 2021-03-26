@@ -62,8 +62,9 @@ namespace HeatmapWrapper
             }
 
             var gameConfig = GetSelectedConfiguration();
+            string spreadsheetID = GetSpreadsheetIDForConfiguration(gameConfig);
 
-            string heatmapDataPath = SsHelper.GetSpreadsheetData("", tabName, "A1:C", gameConfig.ToString());
+            string heatmapDataPath = SsHelper.GetSpreadsheetData(spreadsheetID, tabName, "A1:C", gameConfig.ToString());
 
             // TODO: Determine flags to use
             List<string> flags = new List<string>();
@@ -88,7 +89,7 @@ namespace HeatmapWrapper
 
         private void UpdateGameVersionComboBox()
         {
-            HashSet<string> versionNames = GetGameVersionsFromSpreadsheets();
+            HashSet<string> versionNames = GetGameVersionsFromSpreadsheet();
 
             // Sort versions descending
             IEnumerable<string> sortedVersions = versionNames.OrderByDescending(v => int.Parse(v));
@@ -111,12 +112,13 @@ namespace HeatmapWrapper
             cmbGameVersion.SelectedItem = "Latest";
         }
 
-        private HashSet<string> GetGameVersionsFromSpreadsheets()
+        private HashSet<string> GetGameVersionsFromSpreadsheet()
         {
             // TODO: Determine if development or release
+            string spreadsheetID = GetSpreadsheetIDForConfiguration(GetSelectedConfiguration());
 
             // Get tab names from Google Spreadsheets
-            List<string> tabNames = SsHelper.GetTabNames("");
+            List<string> tabNames = SsHelper.GetTabNames(spreadsheetID);
 
             // Remove tab name prefixes
             for(int i = 0; i < tabNames.Count; ++i)
@@ -157,6 +159,18 @@ namespace HeatmapWrapper
             else
             {
                 throw new Exception("Unable to determine selected heatmap type");
+            }
+        }
+
+        private string GetSpreadsheetIDForConfiguration(Enums.GameConfiguration Config)
+        {
+            if(Config == Enums.GameConfiguration.Development)
+            {
+                return Properties.Resources.DevelopmentSpreadsheetID;
+            }
+            else
+            {
+                return Properties.Resources.ReleaseSpreadsheetID;
             }
         }
     }
