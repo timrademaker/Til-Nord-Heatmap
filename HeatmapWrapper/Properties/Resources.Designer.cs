@@ -70,6 +70,15 @@ namespace HeatmapWrapper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 600.
+        /// </summary>
+        internal static string MaximumCacheAgeInSeconds {
+            get {
+                return ResourceManager.GetString("MaximumCacheAgeInSeconds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         internal static string ReleaseSpreadsheetID {

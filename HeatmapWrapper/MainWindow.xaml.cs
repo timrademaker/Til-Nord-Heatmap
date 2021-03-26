@@ -69,7 +69,8 @@ namespace HeatmapWrapper
             var gameConfig = GetSelectedConfiguration();
             string spreadsheetID = GetSpreadsheetIDForConfiguration(gameConfig);
 
-            string heatmapDataPath = SsHelper.GetSpreadsheetData(spreadsheetID, tabName, "A1:C", gameConfig.ToString());
+            bool forceDataUpdate = cbForceDataUpdate.IsChecked.GetValueOrDefault(false);
+            string heatmapDataPath = SsHelper.GetSpreadsheetData(spreadsheetID, tabName, "A1:C", gameConfig.ToString(), forceDataUpdate);
 
             // TODO: Determine flags to use
             List<string> flags = new List<string>();

@@ -67,11 +67,23 @@ namespace HeatmapWrapper
          * @param GameConfiguration The configuration of the game that 
          * @return The path to the spreadsheet data
          */
-        public string GetSpreadsheetData(string SheetID, string TabName, string CellRange, string GameConfiguration)
+        public string GetSpreadsheetData(string SheetID, string TabName, string CellRange, string GameConfiguration, bool ForceRefresh = false)
         {
             Directory.CreateDirectory(GameConfiguration);
 
             string filePath = GameConfiguration + "/" + TabName + ".csv";
+
+            // Check if the file exists and is not outdated
+            if(File.Exists(filePath) && !ForceRefresh)
+            {
+                DateTime lastWriteTimeUtc = File.GetLastWriteTimeUtc(filePath);
+                DateTime nowUtc = DateTime.UtcNow;
+
+                if((nowUtc - lastWriteTimeUtc).TotalSeconds < Int32.Parse(Properties.Resources.MaximumCacheAgeInSeconds))
+                {
+                    return filePath;
+                }
+            }
 
             string range = TabName + "!" + CellRange;
 
