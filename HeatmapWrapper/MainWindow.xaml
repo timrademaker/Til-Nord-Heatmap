@@ -26,15 +26,15 @@
 		</StackPanel>
 		<StackPanel Orientation="Horizontal" Name="spGameConfigurationPanel">
 			<TextBlock Text="Game Configuration" VerticalAlignment="Center"/>
-			<RadioButton GroupName="GameConfiguration" Content="Development" VerticalAlignment="Center" Name="rbGameConfigurationDevelopment"/>
-            <RadioButton GroupName="GameConfiguration" Content="Release" VerticalAlignment="Center" IsChecked="True" Name="rbGameConfigurationRelease"/>
+			<RadioButton GroupName="GameConfiguration" Content="Development" VerticalAlignment="Center" Name="rbGameConfigurationDevelopment" Checked="GameConfiguration_Changed"/>
+            <RadioButton GroupName="GameConfiguration" Content="Release" VerticalAlignment="Center" IsChecked="True" Name="rbGameConfigurationRelease" Checked="GameConfiguration_Changed"/>
 		</StackPanel>
 		<!--Radio Buttons End-->
 		
 		<!--Game Version Start-->
 		<StackPanel Orientation="Horizontal">
 			<TextBlock Text="Game Version" VerticalAlignment="Center"/>
-			<ComboBox VerticalAlignment="Center" Name="cmbGameVersion">
+			<ComboBox VerticalAlignment="Center" Name="cmbGameVersion" DropDownOpened="GameVersion_DropDownOpened">
 				<ComboBoxItem IsSelected="True">Latest</ComboBoxItem>
 				<!--Other items are added through code-->
 			</ComboBox>

@@ -26,6 +26,11 @@ namespace HeatmapWrapper
         private SpreadsheetHelper SsHelper = new SpreadsheetHelper();
         private int LatestVersion = 0;
 
+        bool GameVersionComboBoxValuesDirty = false;
+
+        private HashSet<string> DevelopmentVersions = new HashSet<string>();
+        private HashSet<string> ReleaseVersions = new HashSet<string>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -91,12 +96,12 @@ namespace HeatmapWrapper
 
         private void RefreshGameVersions_Click(object sender, RoutedEventArgs e)
         {
-            UpdateGameVersionComboBox();
+            UpdateGameVersionComboBox(true);
         }
 
-        private void UpdateGameVersionComboBox()
+        private void UpdateGameVersionComboBox(bool TriggeredByRefresh = false)
         {
-            HashSet<string> versionNames = GetGameVersionsFromSpreadsheet();
+            HashSet<string> versionNames = GetGameVersionsFromSpreadsheet(TriggeredByRefresh);
 
             // Sort versions descending
             IEnumerable<string> sortedVersions = versionNames.OrderByDescending(v => int.Parse(v));
@@ -117,12 +122,34 @@ namespace HeatmapWrapper
             }
 
             cmbGameVersion.SelectedItem = "Latest";
+            
+            GameVersionComboBoxValuesDirty = false;
         }
 
-        private HashSet<string> GetGameVersionsFromSpreadsheet()
+        private HashSet<string> GetGameVersionsFromSpreadsheet(bool TriggeredByRefresh = false)
         {
-            // TODO: Determine if development or release
-            string spreadsheetID = GetSpreadsheetIDForConfiguration(GetSelectedConfiguration());
+            var configuration = GetSelectedConfiguration();
+            
+            // See if the versions have been loaded before
+            if(!TriggeredByRefresh)
+            {
+                if(configuration == Enums.GameConfiguration.Development)
+                {
+                    if(DevelopmentVersions.Count > 0)
+                    {
+                        return DevelopmentVersions;
+                    }
+                }
+                else
+                {
+                    if (ReleaseVersions.Count > 0)
+                    {
+                        return ReleaseVersions;
+                    }
+                }
+            }
+
+            string spreadsheetID = GetSpreadsheetIDForConfiguration(configuration);
 
             // Get tab names from Google Spreadsheets
             List<string> tabNames = SsHelper.GetTabNames(spreadsheetID);
@@ -134,7 +161,19 @@ namespace HeatmapWrapper
                 tabNames[i] = tabNames[i].Replace(LocationDataTabPrefix, "");
             }
 
-            return tabNames.ToHashSet();
+            HashSet<string> hs = tabNames.ToHashSet();
+
+            // Update cached versions for the current configuration
+            if (configuration == Enums.GameConfiguration.Development)
+            {
+                DevelopmentVersions = hs;
+            }
+            else
+            {
+                ReleaseVersions = hs;
+            }
+
+            return hs;
         }
 
         private Enums.GameConfiguration GetSelectedConfiguration()
@@ -179,6 +218,20 @@ namespace HeatmapWrapper
             {
                 return Properties.Resources.ReleaseSpreadsheetID;
             }
+        }
+
+        private void GameVersion_DropDownOpened(object sender, EventArgs e)
+        {
+            // Check if the combobox contains anything more than "Latest", or if the game configuration changed
+            if(cmbGameVersion.Items.Count <= 1 || GameVersionComboBoxValuesDirty)
+            {
+                UpdateGameVersionComboBox();
+            }
+        }
+
+        private void GameConfiguration_Changed(object sender, RoutedEventArgs e)
+        {
+            GameVersionComboBoxValuesDirty = true;
         }
     }
 }
