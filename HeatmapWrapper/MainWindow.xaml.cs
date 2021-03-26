@@ -33,12 +33,52 @@ namespace HeatmapWrapper
 
         private void GenerateHeatmap_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: Run console command to run Python file
             // Make sure we know what "Latest" is
             if(LatestVersion == 0)
             {
                 UpdateGameVersionComboBox();
             }
+
+            // Get data from spreadsheet
+            string tabName = cmbGameVersion.Text;
+            if (tabName == "Latest")
+            {
+                tabName = LatestVersion.ToString();
+            }
+
+            var selectedHeatmapType = GetSelectedHeatmapType();
+
+            if (selectedHeatmapType == Enums.HeatmapType.Location)
+            {
+                tabName = LocationDataTabPrefix + tabName;
+            }
+            else if (selectedHeatmapType == Enums.HeatmapType.Bump)
+            {
+                tabName = BumpDataTabPrefix + tabName;
+            }
+            else
+            {
+                throw new Exception("No heatmap type seems to be selected!");
+            }
+
+            var gameConfig = GetSelectedConfiguration();
+
+            string heatmapDataPath = SsHelper.GetSpreadsheetData("", tabName, "A1:C", gameConfig.ToString());
+
+            // TODO: Determine flags to use
+            List<string> flags = new List<string>();
+
+            flags.Add("--" + selectedHeatmapType.ToString() + "Data " + heatmapDataPath);
+            flags.Add("--CsvDelimiter " + SpreadsheetHelper.CsvDelimiter);
+
+            string flagString = "";
+            foreach(var flag in flags)
+            {
+                flagString += " " + flag;
+            }
+
+            // Generate heatmap
+            System.Diagnostics.Process.Start("py", "GenerateHeatmaps.py" + flagString);
         }
 
         private void RefreshGameVersions_Click(object sender, RoutedEventArgs e)
