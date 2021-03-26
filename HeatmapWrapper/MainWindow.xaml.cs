@@ -77,5 +77,37 @@ namespace HeatmapWrapper
 
             return tabNames.ToHashSet();
         }
+
+        private Enums.GameConfiguration GetSelectedConfiguration()
+        {
+            if(rbGameConfigurationDevelopment.IsChecked.GetValueOrDefault(false) == true)
+            {
+                return Enums.GameConfiguration.Development;
+            }
+            else if(rbGameConfigurationRelease.IsChecked.GetValueOrDefault(false) == true)
+            {
+                return Enums.GameConfiguration.Release;
+            }
+            else
+            {
+                throw new Exception("Unable to determine selected game configuration");
+            }
+        }
+
+        private Enums.HeatmapType GetSelectedHeatmapType()
+        {
+            if (rbHeatmapTypeLocation.IsChecked.GetValueOrDefault(false) == true)
+            {
+                return Enums.HeatmapType.Location;
+            }
+            else if (rbHeatmapTypeBump.IsChecked.GetValueOrDefault(false) == true)
+            {
+                return Enums.HeatmapType.Bump;
+            }
+            else
+            {
+                throw new Exception("Unable to determine selected heatmap type");
+            }
+        }
     }
 }

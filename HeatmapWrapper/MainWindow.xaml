@@ -21,13 +21,13 @@
 		<!--Radio Buttons Start-->
 		<StackPanel Orientation="Horizontal" Name="spHeatmapTypePanel">
 			<TextBlock Text="Heatmap Type" VerticalAlignment="Center"/>
-			<RadioButton GroupName="HeatmapType" Content="Location" VerticalAlignment="Center" IsChecked="True"/>
-			<RadioButton GroupName="HeatmapType" Content="Bump" VerticalAlignment="Center"/>
+			<RadioButton GroupName="HeatmapType" Content="Location" VerticalAlignment="Center" IsChecked="True" Name="rbHeatmapTypeLocation"/>
+            <RadioButton GroupName="HeatmapType" Content="Bump" VerticalAlignment="Center" Name="rbHeatmapTypeBump"/>
 		</StackPanel>
 		<StackPanel Orientation="Horizontal" Name="spGameConfigurationPanel">
 			<TextBlock Text="Game Configuration" VerticalAlignment="Center"/>
-			<RadioButton GroupName="GameConfiguration" Content="Development" VerticalAlignment="Center"/>
-			<RadioButton GroupName="GameConfiguration" Content="Release" VerticalAlignment="Center" IsChecked="True"/>
+			<RadioButton GroupName="GameConfiguration" Content="Development" VerticalAlignment="Center" Name="rbGameConfigurationDevelopment"/>
+            <RadioButton GroupName="GameConfiguration" Content="Release" VerticalAlignment="Center" IsChecked="True" Name="rbGameConfigurationRelease"/>
 		</StackPanel>
 		<!--Radio Buttons End-->
 		
