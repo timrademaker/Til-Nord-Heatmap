@@ -30,12 +30,12 @@
         
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Development" VerticalAlignment="Center" TextAlignment="Left" Name="tbDevelopmentSpreadsheetID"/>
-            <TextBox MinWidth="60" Margin="10,0"/>
+            <TextBox MinWidth="60" Margin="10,0" Text="{Binding Source={StaticResource Settings}, Path=Default.DevelopmentSpreadsheetID}"/>
         </StackPanel>
         
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Release" TextAlignment="Left" Name="tbReleaseSpreadsheetID"/>
-            <TextBox MinWidth="60" Margin="10,0"/>
+            <TextBox MinWidth="60" Margin="10,0" Text="{Binding Source={StaticResource Settings}, Path=Default.ReleaseSpreadsheetID}"/>
         </StackPanel>
         <!--Spreadsheet IDs end-->
         
@@ -47,7 +47,7 @@
 
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Background Image"/>
-            <TextBox Width="100" TextWrapping="NoWrap" Name="tbBackgroundImage" Margin="10,0"/>
+            <TextBox Width="100" TextWrapping="NoWrap" Name="tbBackgroundImage" Margin="10,0" Text="{Binding Source={StaticResource Settings}, Path=Default.BackgroundImagePath}"/>
             <Button Width="40" Click="BackgroundImageButton_Click">
                 <TextBlock Text="..."/>
             </Button>
@@ -55,13 +55,13 @@
 
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Plot Alpha"/>
-            <Slider Minimum="0" Maximum="1" Value="0.75"  Name="slBucketDensity" MinWidth="100" SmallChange="0.01" IsSnapToTickEnabled="False" LargeChange="0.1"/>
+            <Slider Minimum="0" Maximum="1" Value="{Binding Source={StaticResource Settings}, Path=Default.PlotAlpha}"  Name="slBucketDensity" MinWidth="100" SmallChange="0.01" IsSnapToTickEnabled="False" LargeChange="0.1"/>
             <TextBox Text="{Binding ElementName=slBucketDensity, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="40" TextAlignment="Right"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Discard Out Of Bound"/>
-            <CheckBox Name="cbDiscardOutOfBounds" VerticalAlignment="Center" />
+            <CheckBox Name="cbDiscardOutOfBounds" VerticalAlignment="Center" IsChecked="{Binding Source={StaticResource Settings}, Path=Default.DiscardOutOfBounds}" />
         </StackPanel>
         <!--Heatmap end-->
         
@@ -73,14 +73,14 @@
 
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Min X and Y"/>
-            <TextBox Width="60" Margin="10,0,0,0" Name="tbMinX"/>
-            <TextBox Width="60" Margin="10,0,0,0" Name="tbMinY"/>
+            <TextBox Width="60" Margin="10,0,0,0" Name="tbMinX" Text="{Binding Source={StaticResource Settings}, Path=Default.MapBoundsMinX}"/>
+            <TextBox Width="60" Margin="10,0,0,0" Name="tbMinY" Text="{Binding Source={StaticResource Settings}, Path=Default.MapBoundsMinY}"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Max X and Y"/>
-            <TextBox Width="60" Margin="10,0,0,0" Name="tbMaxX"/>
-            <TextBox Width="60" Margin="10,0,0,0" Name="tbMaxY"/>
+            <TextBox Width="60" Margin="10,0,0,0" Name="tbMaxX" Text="{Binding Source={StaticResource Settings}, Path=Default.MapBoundsMaxX}"/>
+            <TextBox Width="60" Margin="10,0,0,0" Name="tbMaxY" Text="{Binding Source={StaticResource Settings}, Path=Default.MapBoundsMaxY}"/>
         </StackPanel>
         <!--Map Bounds end-->
         
@@ -92,7 +92,7 @@
 
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Maximum Cache Age"/>
-            <TextBox Width="60" Margin="5,0" Name="tbMaximumCacheAge"/>
+            <TextBox Width="60" Margin="5,0" Name="tbMaximumCacheAge" Text="{Binding Source={StaticResource Settings}, Path=Default.MaximumCacheAge}"/>
             <TextBlock Text="Minutes"/>
         </StackPanel>
         <!--Caching end-->
@@ -104,7 +104,7 @@
             <Button DockPanel.Dock="Right" Margin="10,0,0,0" Click="CancelButton_Click">
                 <TextBlock Text="Cancel"/>
             </Button>
-            <Button DockPanel.Dock="Right">
+            <Button DockPanel.Dock="Right" Click="ConfirmButton_Click">
                 <TextBlock Text="Confirm"/>
             </Button>
         </DockPanel>

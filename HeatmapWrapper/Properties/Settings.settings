@@ -1,7 +1,36 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="HeatmapWrapper.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DevelopmentSpreadsheetID" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ReleaseSpreadsheetID" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="BackgroundImagePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="PlotAlpha" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.75</Value>
+    </Setting>
+    <Setting Name="DiscardOutOfBounds" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MapBoundsMinX" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">-204000</Value>
+    </Setting>
+    <Setting Name="MapBoundsMinY" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">-204000</Value>
+    </Setting>
+    <Setting Name="MapBoundsMaxX" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">204000</Value>
+    </Setting>
+    <Setting Name="MapBoundsMaxY" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">204000</Value>
+    </Setting>
+    <Setting Name="MaximumCacheAge" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

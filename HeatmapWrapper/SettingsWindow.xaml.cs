@@ -33,12 +33,13 @@ namespace HeatmapWrapper
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
+            Properties.Settings.Default.Reload();
             Close();
         }
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: Save settings
+            Properties.Settings.Default.Save();
             Close();
         }
     }

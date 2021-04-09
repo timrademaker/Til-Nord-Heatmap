@@ -8,21 +8,138 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-namespace HeatmapWrapper.Properties
-{
+namespace HeatmapWrapper.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DevelopmentSpreadsheetID {
+            get {
+                return ((string)(this["DevelopmentSpreadsheetID"]));
+            }
+            set {
+                this["DevelopmentSpreadsheetID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ReleaseSpreadsheetID {
+            get {
+                return ((string)(this["ReleaseSpreadsheetID"]));
+            }
+            set {
+                this["ReleaseSpreadsheetID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string BackgroundImagePath {
+            get {
+                return ((string)(this["BackgroundImagePath"]));
+            }
+            set {
+                this["BackgroundImagePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.75")]
+        public float PlotAlpha {
+            get {
+                return ((float)(this["PlotAlpha"]));
+            }
+            set {
+                this["PlotAlpha"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DiscardOutOfBounds {
+            get {
+                return ((bool)(this["DiscardOutOfBounds"]));
+            }
+            set {
+                this["DiscardOutOfBounds"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-204000")]
+        public int MapBoundsMinX {
+            get {
+                return ((int)(this["MapBoundsMinX"]));
+            }
+            set {
+                this["MapBoundsMinX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-204000")]
+        public int MapBoundsMinY {
+            get {
+                return ((int)(this["MapBoundsMinY"]));
+            }
+            set {
+                this["MapBoundsMinY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("204000")]
+        public int MapBoundsMaxX {
+            get {
+                return ((int)(this["MapBoundsMaxX"]));
+            }
+            set {
+                this["MapBoundsMaxX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("204000")]
+        public int MapBoundsMaxY {
+            get {
+                return ((int)(this["MapBoundsMaxY"]));
+            }
+            set {
+                this["MapBoundsMaxY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public int MaximumCacheAge {
+            get {
+                return ((int)(this["MaximumCacheAge"]));
+            }
+            set {
+                this["MaximumCacheAge"] = value;
             }
         }
     }
