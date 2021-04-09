@@ -142,5 +142,17 @@ namespace HeatmapWrapper.Properties {
                 this["MaximumCacheAge"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool UseLogarithmicScale {
+            get {
+                return ((bool)(this["UseLogarithmicScale"]));
+            }
+            set {
+                this["UseLogarithmicScale"] = value;
+            }
+        }
     }
 }

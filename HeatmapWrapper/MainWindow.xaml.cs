@@ -88,6 +88,8 @@ namespace HeatmapWrapper
                         Properties.Settings.Default.MapBoundsMaxX + " " +
                         Properties.Settings.Default.MapBoundsMinY + " " +
                         Properties.Settings.Default.MapBoundsMaxY);
+            // Logarithmic scale
+            flags.Add("--UseLogScale " + (Properties.Settings.Default.UseLogarithmicScale ? "1" : "0"));
 
             string flagString = "";
             foreach(var flag in flags)

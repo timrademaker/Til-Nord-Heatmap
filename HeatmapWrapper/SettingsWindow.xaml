@@ -60,6 +60,11 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Use Logarighmic Scale"/>
+            <CheckBox Name="cbUseLogarithmicScale" VerticalAlignment="Center" IsChecked="{Binding Source={StaticResource Settings}, Path=Default.UseLogarithmicScale}" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
             <TextBlock Text="Discard Out Of Bound"/>
             <CheckBox Name="cbDiscardOutOfBounds" VerticalAlignment="Center" IsChecked="{Binding Source={StaticResource Settings}, Path=Default.DiscardOutOfBounds}" />
         </StackPanel>
