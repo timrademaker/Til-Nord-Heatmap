@@ -224,5 +224,11 @@ namespace HeatmapWrapper
         {
             GameVersionComboBoxValuesDirty = true;
         }
+
+        private void SettingsMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsWindow sw = new SettingsWindow();
+            sw.Show();
+        }
     }
 }

@@ -17,53 +17,58 @@
 			<Setter Property="Margin" Value="5,5"/>
 		</Style>
 	</Window.Resources>
-	<StackPanel>
-		<!--Radio Buttons Start-->
-		<StackPanel Orientation="Horizontal" Name="spHeatmapTypePanel">
-			<TextBlock Text="Heatmap Type" VerticalAlignment="Center"/>
-			<RadioButton GroupName="HeatmapType" Content="Location" VerticalAlignment="Center" IsChecked="True" Name="rbHeatmapTypeLocation"/>
-            <RadioButton GroupName="HeatmapType" Content="Bump" VerticalAlignment="Center" Name="rbHeatmapTypeBump"/>
-		</StackPanel>
-		<StackPanel Orientation="Horizontal" Name="spGameConfigurationPanel">
-			<TextBlock Text="Game Configuration" VerticalAlignment="Center"/>
-			<RadioButton GroupName="GameConfiguration" Content="Development" VerticalAlignment="Center" Name="rbGameConfigurationDevelopment" Checked="GameConfiguration_Changed"/>
-            <RadioButton GroupName="GameConfiguration" Content="Release" VerticalAlignment="Center" IsChecked="True" Name="rbGameConfigurationRelease" Checked="GameConfiguration_Changed"/>
-		</StackPanel>
-		<!--Radio Buttons End-->
-		
-		<!--Game Version Start-->
-		<StackPanel Orientation="Horizontal">
-			<TextBlock Text="Game Version" VerticalAlignment="Center"/>
-			<ComboBox VerticalAlignment="Center" Name="cmbGameVersion" DropDownOpened="GameVersion_DropDownOpened">
-				<ComboBoxItem IsSelected="True">Latest</ComboBoxItem>
-				<!--Other items are added through code-->
-			</ComboBox>
-			<Button Margin="10,0" VerticalAlignment="Center" Click="RefreshGameVersions_Click">
-				<TextBlock Text="Refresh"/>
-			</Button>
-		</StackPanel>
-		<StackPanel Orientation="Horizontal">
-			<TextBlock VerticalAlignment="Center" Text="Force Data Update"/>
-			<CheckBox IsChecked="False" VerticalAlignment="Center" Name="cbForceDataUpdate"/>
-		</StackPanel>
-		<!--Game Version End-->
-		
-		<!--Sliders Start-->
-		<StackPanel Orientation="Horizontal">
-			<TextBlock VerticalAlignment="Center" Text="Bucket Density"/>
-			<Slider Minimum="8" Maximum="1024" Value="128" Interval="1"  Name="slBucketDensity" MinWidth="100" SmallChange="1" IsSnapToTickEnabled="True"/>
-			<TextBox Text="{Binding ElementName=slBucketDensity, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="40" TextAlignment="Right"/>
-		</StackPanel>
-		
-		<StackPanel Orientation="Horizontal">
-			<TextBlock VerticalAlignment="Center" Text="Color Bin Count"/>
-			<Slider Minimum="8" Maximum="256" Value="16" Interval="1"  Name="slColorBinCount" MinWidth="100" SmallChange="1" IsSnapToTickEnabled="True"/>
-			<TextBox Text="{Binding ElementName=slColorBinCount, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="40" TextAlignment="Right"/>
-		</StackPanel>
-		<!--Sliders End-->
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Settings" Click="SettingsMenuButton_Click"/>
+        </Menu>
+        <StackPanel>
+            <!--Radio Buttons Start-->
+            <StackPanel Orientation="Horizontal" Name="spHeatmapTypePanel">
+                <TextBlock Text="Heatmap Type" VerticalAlignment="Center"/>
+                <RadioButton GroupName="HeatmapType" Content="Location" VerticalAlignment="Center" IsChecked="True" Name="rbHeatmapTypeLocation"/>
+                <RadioButton GroupName="HeatmapType" Content="Bump" VerticalAlignment="Center" Name="rbHeatmapTypeBump"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Name="spGameConfigurationPanel">
+                <TextBlock Text="Game Configuration" VerticalAlignment="Center"/>
+                <RadioButton GroupName="GameConfiguration" Content="Development" VerticalAlignment="Center" Name="rbGameConfigurationDevelopment" Checked="GameConfiguration_Changed"/>
+                <RadioButton GroupName="GameConfiguration" Content="Release" VerticalAlignment="Center" IsChecked="True" Name="rbGameConfigurationRelease" Checked="GameConfiguration_Changed"/>
+            </StackPanel>
+            <!--Radio Buttons End-->
 
-		<Button HorizontalAlignment="Left" Margin="10,5,0,0" Click="GenerateHeatmap_Click">
-			<TextBlock Text="Generate Heatmap"/>
-		</Button>
-	</StackPanel>
+            <!--Game Version Start-->
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Game Version" VerticalAlignment="Center"/>
+                <ComboBox VerticalAlignment="Center" Name="cmbGameVersion" DropDownOpened="GameVersion_DropDownOpened">
+                    <ComboBoxItem IsSelected="True">Latest</ComboBoxItem>
+                    <!--Other items are added through code-->
+                </ComboBox>
+                <Button Margin="10,0" VerticalAlignment="Center" Click="RefreshGameVersions_Click">
+                    <TextBlock Text="Refresh"/>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Text="Force Data Update"/>
+                <CheckBox IsChecked="False" VerticalAlignment="Center" Name="cbForceDataUpdate"/>
+            </StackPanel>
+            <!--Game Version End-->
+
+            <!--Sliders Start-->
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Text="Bucket Density"/>
+                <Slider Minimum="8" Maximum="1024" Value="128" Interval="1"  Name="slBucketDensity" MinWidth="100" SmallChange="1" IsSnapToTickEnabled="True"/>
+                <TextBox Text="{Binding ElementName=slBucketDensity, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="40" TextAlignment="Right"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Text="Color Bin Count"/>
+                <Slider Minimum="8" Maximum="256" Value="16" Interval="1"  Name="slColorBinCount" MinWidth="100" SmallChange="1" IsSnapToTickEnabled="True"/>
+                <TextBox Text="{Binding ElementName=slColorBinCount, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="40" TextAlignment="Right"/>
+            </StackPanel>
+            <!--Sliders End-->
+
+            <Button HorizontalAlignment="Left" Margin="10,5,0,0" Click="GenerateHeatmap_Click">
+                <TextBlock Text="Generate Heatmap"/>
+            </Button>
+        </StackPanel>
+    </DockPanel>
 </Window>
