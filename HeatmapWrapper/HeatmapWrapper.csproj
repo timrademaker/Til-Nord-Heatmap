@@ -131,4 +131,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(ProjectDir)GenerateHeatmaps.py" "$(TargetDir)" /Y</PostBuildEvent>
+  </PropertyGroup>
 </Project>
