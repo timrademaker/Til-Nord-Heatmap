@@ -30,7 +30,7 @@
       <Value Profile="(Default)">204000</Value>
     </Setting>
     <Setting Name="MaximumCacheAge" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">5</Value>
+      <Value Profile="(Default)">10</Value>
     </Setting>
   </Settings>
 </SettingsFile>
