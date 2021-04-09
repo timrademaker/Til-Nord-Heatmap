@@ -136,6 +136,6 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(ProjectDir)GenerateHeatmaps.py" "$(TargetDir)" /Y</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(SolutionDir)\Python\GenerateHeatmaps.py" "$(TargetDir)" /Y</PostBuildEvent>
   </PropertyGroup>
 </Project>
