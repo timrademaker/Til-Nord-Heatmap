@@ -39,6 +39,7 @@ namespace HeatmapWrapper
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
+            Properties.Settings.Default.BackgroundImagePath = tbBackgroundImage.Text;
             Properties.Settings.Default.Save();
             Close();
         }
