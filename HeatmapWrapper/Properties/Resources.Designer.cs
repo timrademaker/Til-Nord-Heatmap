@@ -59,32 +59,5 @@ namespace HeatmapWrapper.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string DevelopmentSpreadsheetID {
-            get {
-                return ResourceManager.GetString("DevelopmentSpreadsheetID", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 600.
-        /// </summary>
-        internal static string MaximumCacheAgeInSeconds {
-            get {
-                return ResourceManager.GetString("MaximumCacheAgeInSeconds", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string ReleaseSpreadsheetID {
-            get {
-                return ResourceManager.GetString("ReleaseSpreadsheetID", resourceCulture);
-            }
-        }
     }
 }

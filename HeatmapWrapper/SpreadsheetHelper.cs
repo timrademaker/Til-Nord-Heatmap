@@ -79,7 +79,7 @@ namespace HeatmapWrapper
                 DateTime lastWriteTimeUtc = File.GetLastWriteTimeUtc(filePath);
                 DateTime nowUtc = DateTime.UtcNow;
 
-                if((nowUtc - lastWriteTimeUtc).TotalSeconds < Int32.Parse(Properties.Resources.MaximumCacheAgeInSeconds))
+                if((nowUtc - lastWriteTimeUtc).TotalSeconds < Properties.Settings.Default.MaximumCacheAge * 60)
                 {
                     return filePath;
                 }

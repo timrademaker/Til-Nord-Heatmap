@@ -30,12 +30,12 @@
         
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Development" VerticalAlignment="Center" TextAlignment="Left" Name="tbDevelopmentSpreadsheetID"/>
-            <TextBox MinWidth="60" Margin="10,0" Text="{Binding Source={StaticResource Settings}, Path=Default.DevelopmentSpreadsheetID}"/>
+            <TextBox MinWidth="100" Margin="10,0" Text="{Binding Source={StaticResource Settings}, Path=Default.DevelopmentSpreadsheetID}"/>
         </StackPanel>
         
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Release" TextAlignment="Left" Name="tbReleaseSpreadsheetID"/>
-            <TextBox MinWidth="60" Margin="10,0" Text="{Binding Source={StaticResource Settings}, Path=Default.ReleaseSpreadsheetID}"/>
+            <TextBox MinWidth="100" Margin="10,0" Text="{Binding Source={StaticResource Settings}, Path=Default.ReleaseSpreadsheetID}"/>
         </StackPanel>
         <!--Spreadsheet IDs end-->
         
@@ -47,7 +47,7 @@
 
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Background Image"/>
-            <TextBox Width="100" TextWrapping="NoWrap" Name="tbBackgroundImage" Margin="10,0" Text="{Binding Source={StaticResource Settings}, Path=Default.BackgroundImagePath}"/>
+            <TextBox Width="200" TextWrapping="NoWrap" Name="tbBackgroundImage" Margin="10,0" Text="{Binding Source={StaticResource Settings}, Path=Default.BackgroundImagePath}"/>
             <Button Width="40" Click="BackgroundImageButton_Click">
                 <TextBlock Text="..."/>
             </Button>

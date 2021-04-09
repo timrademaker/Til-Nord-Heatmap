@@ -62,7 +62,7 @@ namespace HeatmapWrapper
             bool forceDataUpdate = cbForceDataUpdate.IsChecked.GetValueOrDefault(false);
             string heatmapDataPath = SsHelper.GetSpreadsheetData(spreadsheetID, tabName, "A1:C", gameConfig.ToString(), forceDataUpdate);
 
-            // TODO: Determine flags to use
+            // Determine flags to use
             List<string> flags = new List<string>();
 
             // Data to use
@@ -74,6 +74,20 @@ namespace HeatmapWrapper
             flags.Add("--VerticalBuckets " + slBucketDensity.Value);
             // Color bin count
             flags.Add("--ColorBinCount " + slColorBinCount.Value);
+
+            // Background image
+            if (Properties.Settings.Default.BackgroundImagePath.Length > 0)
+            {
+                flags.Add("--BackgroundImage \"" + Properties.Settings.Default.BackgroundImagePath + "\"");
+            }
+            // Plot alpha
+            flags.Add("--PlotAlpha " + Properties.Settings.Default.PlotAlpha.ToString().Replace(",", "."));
+            // Map bounds
+            flags.Add("--MapBounds " +
+                        Properties.Settings.Default.MapBoundsMinX + " " +
+                        Properties.Settings.Default.MapBoundsMaxX + " " +
+                        Properties.Settings.Default.MapBoundsMinY + " " +
+                        Properties.Settings.Default.MapBoundsMaxY);
 
             string flagString = "";
             foreach(var flag in flags)
@@ -203,11 +217,11 @@ namespace HeatmapWrapper
         {
             if(Config == Enums.GameConfiguration.Development)
             {
-                return Properties.Resources.DevelopmentSpreadsheetID;
+                return Properties.Settings.Default.DevelopmentSpreadsheetID;
             }
             else
             {
-                return Properties.Resources.ReleaseSpreadsheetID;
+                return Properties.Settings.Default.ReleaseSpreadsheetID;
             }
         }
 
