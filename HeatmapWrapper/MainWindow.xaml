@@ -43,7 +43,7 @@
                     <!--Other items are added through code-->
                 </ComboBox>
                 <Button Margin="10,0" VerticalAlignment="Center" Click="RefreshGameVersions_Click">
-                    <TextBlock Text="Refresh"/>
+                    <TextBlock Text="↺"/>
                 </Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -66,7 +66,7 @@
             </StackPanel>
             <!--Sliders End-->
 
-            <Button HorizontalAlignment="Left" Margin="10,5,0,0" Click="GenerateHeatmap_Click">
+            <Button HorizontalAlignment="Center" Margin="0,20,0,10" Click="GenerateHeatmap_Click">
                 <TextBlock Text="Generate Heatmap"/>
             </Button>
         </StackPanel>
