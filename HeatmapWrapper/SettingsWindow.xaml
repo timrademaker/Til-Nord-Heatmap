@@ -24,7 +24,7 @@
     <StackPanel>
         <!--Spreadsheet IDs start-->
         <DockPanel Width="Auto" HorizontalAlignment="Stretch">
-            <TextBlock Text="Spreadsheet IDs"/>
+            <TextBlock Text="Spreadsheet IDs" FontWeight="SemiBold"/>
             <Separator Width="Auto" HorizontalAlignment="Stretch"/>
         </DockPanel>
         
@@ -41,7 +41,7 @@
         
         <!--Heatmap start-->
         <DockPanel Width="Auto" HorizontalAlignment="Stretch">
-            <TextBlock Text="Heatmap"/>
+            <TextBlock Text="Heatmap" FontWeight="SemiBold"/>
             <Separator Width="Auto" HorizontalAlignment="Stretch"/>
         </DockPanel>
 
@@ -72,7 +72,7 @@
         
         <!--Map Bounds start-->
         <DockPanel Width="Auto" HorizontalAlignment="Stretch">
-            <TextBlock Text="Map Bounds"/>
+            <TextBlock Text="Map Bounds" FontWeight="SemiBold"/>
             <Separator Width="Auto" HorizontalAlignment="Stretch"/>
         </DockPanel>
 
@@ -91,7 +91,7 @@
         
         <!--Caching start-->
         <DockPanel Width="Auto" HorizontalAlignment="Stretch">
-            <TextBlock Text="Caching"/>
+            <TextBlock Text="Caching" FontWeight="SemiBold"/>
             <Separator Width="Auto" HorizontalAlignment="Stretch"/>
         </DockPanel>
 
