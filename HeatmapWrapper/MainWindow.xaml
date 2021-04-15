@@ -56,13 +56,13 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock VerticalAlignment="Center" Text="Bucket Density"/>
                 <Slider Minimum="8" Maximum="1024" Value="128" Interval="1"  Name="slBucketDensity" MinWidth="100" SmallChange="1" IsSnapToTickEnabled="True"/>
-                <TextBox Text="{Binding ElementName=slBucketDensity, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="40" TextAlignment="Right"/>
+                <TextBox Text="{Binding ElementName=slBucketDensity, Path=Value, UpdateSourceTrigger=LostFocus}" Width="40" TextAlignment="Right"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock VerticalAlignment="Center" Text="Color Bin Count"/>
                 <Slider Minimum="8" Maximum="256" Value="16" Interval="1"  Name="slColorBinCount" MinWidth="100" SmallChange="1" IsSnapToTickEnabled="True"/>
-                <TextBox Text="{Binding ElementName=slColorBinCount, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="40" TextAlignment="Right"/>
+                <TextBox Text="{Binding ElementName=slColorBinCount, Path=Value, UpdateSourceTrigger=LostFocus}" Width="40" TextAlignment="Right"/>
             </StackPanel>
             <!--Sliders End-->
 

@@ -56,7 +56,7 @@
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Plot Alpha"/>
             <Slider Minimum="0" Maximum="1" Value="{Binding Source={StaticResource Settings}, Path=Default.PlotAlpha}"  Name="slPlotAlpha" MinWidth="100" TickFrequency="0.01" IsSnapToTickEnabled="True" SmallChange="0.01" LargeChange="0.1"/>
-            <TextBox Text="{Binding ElementName=slPlotAlpha, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat=N2}" Width="40" TextAlignment="Right"/>
+            <TextBox Text="{Binding ElementName=slPlotAlpha, Path=Value, UpdateSourceTrigger=LostFocus, StringFormat=N2}" Width="40" TextAlignment="Right"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
