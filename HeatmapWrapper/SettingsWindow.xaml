@@ -106,12 +106,10 @@
         
         <!--Buttons start-->
         <DockPanel HorizontalAlignment="Right">
-            <Button DockPanel.Dock="Right" Margin="5,0,0,0" Click="CancelButton_Click">
-                <TextBlock Text="Cancel"/>
-            </Button>
-            <Button DockPanel.Dock="Right" Click="ConfirmButton_Click">
-                <TextBlock Text="Confirm"/>
-            </Button>
+            <Button DockPanel.Dock="Right" Margin="5,0,0,0" Click="CancelButton_Click" Content="C_ancel"/>
+
+            <Button DockPanel.Dock="Right" Click="ConfirmButton_Click" Content="_Confirm"/>
+
         </DockPanel>
         <!--Buttons end-->
     </StackPanel>

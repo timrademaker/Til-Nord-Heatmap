@@ -66,9 +66,7 @@
             </StackPanel>
             <!--Sliders End-->
 
-            <Button HorizontalAlignment="Center" Margin="0,20,0,10" Click="GenerateHeatmap_Click">
-                <TextBlock Text="Generate Heatmap"/>
-            </Button>
+            <Button HorizontalAlignment="Center" Margin="0,20,0,10" Click="GenerateHeatmap_Click" Content="_Generate Heatmap"/>
         </StackPanel>
     </DockPanel>
 </Window>
